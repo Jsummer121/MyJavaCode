@@ -1,0 +1,17 @@
+package TCP测试;
+
+/*
+ * TCP客户端
+ */
+public class Client {
+	public static void main(String[] args) {
+		//1.创建一个Socket对象，并连接到指定的服务器IP地址与服务器端口号
+		
+		//2.发送数据给服务器或者接受服务器的数据
+		
+		//3.关闭Socket对象
+		
+		
+
+	}
+}

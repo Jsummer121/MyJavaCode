@@ -1,0 +1,9 @@
+package SetBounds_test;
+
+public class 主界面按钮 extends JFrame{
+
+	public static void main(String[] args) {
+
+	}
+
+}

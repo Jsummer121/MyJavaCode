@@ -1,0 +1,36 @@
+package SetBounds_test;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class test2 extends JFrame{
+	public test2() {
+		this.setSize(500, 500);
+		JPanel contentPane = new JPanel();
+		this.setLocationRelativeTo(null);
+		contentPane = new JPanel();
+		setContentPane(contentPane);
+		//contentPane.setLayout(null);
+		
+		JLabel label = new JLabel("ÓÃ»§Ãû");
+		label.setBounds(100, 100, 54, 15);
+		contentPane.add(label);
+		
+		
+		
+		
+		
+		this.setVisible(true);
+	}
+	
+	private JLabel JLabel(String string) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public static void main(String[] args) {
+		new test2();
+	}
+
+}

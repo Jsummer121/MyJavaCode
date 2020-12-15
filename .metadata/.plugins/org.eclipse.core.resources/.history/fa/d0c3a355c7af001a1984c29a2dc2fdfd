@@ -1,0 +1,151 @@
+package 软工仓库管理系统;
+
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+import javax.swing.*;
+
+
+
+public class GongyingshangMangage extends JPanel implements ActionListener{
+	SupplierInfo suppinfo1;
+	JTable bg2Table;
+	
+	public GongyingshangMangage() {
+		suppinfo1=new SupplierInfo();
+		bg2Table=new JTable(suppinfo1);
+
+		JScrollPane gd2=new JScrollPane(bg2Table);
+		final JPopupMenu popupMenu2=new JPopupMenu();
+		JMenu jMenu2=new JMenu("菜单");
+		JMenuItem  jMenuItem2[]={new JMenuItem("查看详情"),new JMenuItem("刷新"),new JMenuItem("添加供货商"),
+				new JMenuItem("修改供货商"),new JMenuItem("退出")};
+		for (int i = 0; i <2; i++) {
+			popupMenu2.add(jMenuItem2[i]);
+		}
+		popupMenu2.addSeparator();
+		for (int i = 2; i <4 ; i++) {
+			popupMenu2.add(jMenuItem2[i]);	
+		}
+		popupMenu2.addSeparator();
+		popupMenu2.add(jMenuItem2[4]);
+		/**
+		 * 对菜单进行监听，实现其功能
+		 */
+		jMenuItem2[0].addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//查看详情
+				int xz2=bg2Table.getSelectedRow();
+				if (xz2==-1) {
+					JOptionPane.showMessageDialog(null, "请选中你要查看的供货商", "警告", JOptionPane.WARNING_MESSAGE);
+				}else {
+					new Detail2(suppinfo1, xz2);
+				}
+
+			}
+		});
+		jMenuItem2[1].addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//刷新
+				suppinfo1=new SupplierInfo();
+				bg2Table.setModel(suppinfo1);
+			}
+		});
+		jMenuItem2[2].addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//添加供货商
+				//new addsupplier(); 
+
+			}
+		});
+		jMenuItem2[3].addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				final int xz2=bg2Table.getSelectedRow();
+				if (xz2==-1) {
+					JOptionPane.showMessageDialog(null, "请选中你要删除的行");
+					return;
+				} else {
+					new ChangeSupplier(suppinfo1, xz2);
+				}
+			}
+		});
+		//退出菜单
+		jMenuItem2[4].addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				popupMenu2.show(false);
+			}
+		});
+		/*
+		 * 对表格中加监听弹出菜单
+		 */
+		bg2Table.addMouseListener(new MouseAdapter(){
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				if (e.isPopupTrigger()) {
+					popupMenu2.show(true);
+					popupMenu2.show(e.getComponent(),e.getX(),e.getY());
+				}
+
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				mousePressed(e);
+
+			}
+
+		});
+
+
+		//按钮组件
+		JButton addsupplierButton=new JButton("添加供应商");
+		addsupplierButton.addActionListener(this);
+		addsupplierButton.setActionCommand("tianjiagonghuo");
+		JButton deletesupplierButton=new JButton("删除供应商");
+		deletesupplierButton.addActionListener(this);
+		deletesupplierButton.setActionCommand("shanchugonghuo");
+		JButton changesupplierButton=new JButton("修改供应商");
+		changesupplierButton.addActionListener(this);
+		changesupplierButton.setActionCommand("xiugaigonghuo");
+		//将组件添加到面板上
+		JPanel supplierPanel=new JPanel();
+		supplierPanel.add(addsupplierButton);
+		supplierPanel.add(deletesupplierButton);
+		supplierPanel.add(changesupplierButton);
+		this.add(gd2);
+		this.add(supplierPanel,BorderLayout.SOUTH);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+}

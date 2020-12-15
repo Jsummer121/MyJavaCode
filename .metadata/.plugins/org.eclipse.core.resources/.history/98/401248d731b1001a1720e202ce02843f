@@ -1,0 +1,16 @@
+package 聊天程序设计;
+
+/*
+ * 接受数据的任务类
+ */
+public class ReceiveTask implements Runnable {
+	private int receivePort;
+	public ReceiveTask(int receivePort) {
+		this.receivePort = receivePort;
+	}
+	@Override
+	public void run() {
+		
+	}
+
+}

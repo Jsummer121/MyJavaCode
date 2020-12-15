@@ -1,0 +1,10 @@
+package 软工仓库管理系统;
+
+import javax.swing.*;
+
+public class ChanpingView extends JPanel{
+	public ChanpingView() {
+		JLabel chanpinLabel = new JLabel("产品界面");
+		this.add(chanpinLabel);
+	}
+}

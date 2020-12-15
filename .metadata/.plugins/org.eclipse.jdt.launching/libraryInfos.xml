@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<libraryInfos>
+<libraryInfo home="D:\Java\jiejava" version="1.8.0_181">
+<bootpath>
+<entry path="D:\Java\jiejava\lib\resources.jar"/>
+<entry path="D:\Java\jiejava\lib\rt.jar"/>
+<entry path="D:\Java\jiejava\lib\sunrsasign.jar"/>
+<entry path="D:\Java\jiejava\lib\jsse.jar"/>
+<entry path="D:\Java\jiejava\lib\jce.jar"/>
+<entry path="D:\Java\jiejava\lib\charsets.jar"/>
+<entry path="D:\Java\jiejava\lib\jfr.jar"/>
+<entry path="D:\Java\jiejava\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="D:\Java\jiejava\lib\ext"/>
+<entry path="C:\Windows\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="D:\Java\jiejava\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+</libraryInfos>

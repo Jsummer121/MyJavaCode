@@ -1,0 +1,106 @@
+package 软工仓库管理系统;
+
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import javax.swing.*;
+import javax.swing.plaf.nimbus.NimbusLookAndFeel;
+
+public class SettingView extends JPanel{
+	JTable bgTable,bg2Table,bg3Table;
+	public SettingView() {
+		ImageIcon background=new ImageIcon("路飞小.jpg");
+		JLabel image=new JLabel(background);
+		JCheckBox remindBox=new JCheckBox("进货提醒          ");
+		final JCheckBox noChange=new JCheckBox("锁定数据          ");
+		final JCheckBox lockBox=new JCheckBox("锁定用户          ");
+		final JCheckBox timeBox=new JCheckBox("显示时间          ");
+		final JButton logoutButton=new JButton("用户注销");
+		JButton exitButton2=new JButton("用户注册");
+		ButtonGroup styleButtonGroup=new ButtonGroup();
+		//进货提醒监听
+		remindBox.addItemListener(new ItemListener(){
+			public void itemStateChanged(ItemEvent e) {
+				java.sql.Connection connection=null;
+				java.sql.Statement statement=null;
+				try {
+					Class.forName("com.mysql.jdbc.Driver");
+					connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/cangkuguanli","root","leikewei000");
+					statement=connection.createStatement();
+					String sql="select * from productinfo where inver<'100'";
+					ResultSet resultSet=statement.executeQuery(sql);
+				} catch (Exception e2) {
+					// TODO: handle exception
+				}
+			}
+		});
+		//用户注销监听
+		logoutButton.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				new Longing();
+				setVisible(false);
+			}
+		});
+		//锁定数据监听
+		noChange.addItemListener(new ItemListener(){
+			public void itemStateChanged(ItemEvent e) {
+				//设置表格不可更改
+				boolean nochange= noChange.isSelected();
+				if (nochange) {
+					bgTable.setEnabled(false);
+					bg2Table.setEnabled(false);
+					bg3Table.setEnabled(false);
+				}else {
+					bgTable.setEnabled(true);
+					bg2Table.setEnabled(true);
+					bg3Table.setEnabled(true);
+				}
+			}
+		});
+		//锁定用户监听
+		lockBox.addItemListener(new ItemListener(){
+			public void itemStateChanged(ItemEvent e) {
+				boolean lock=lockBox.isSelected();
+				if (lock) {
+					logoutButton.setEnabled(false);
+				}else {
+					logoutButton.setEnabled(true);
+				}
+			}
+		});
+		//用户注册监听
+		exitButton2.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				new AddUser();
+			}
+		});
+		JLabel fontLabel=new JLabel("                      字体选择   ");
+		String fontString[]={"宋体","楷体","华文行楷"};
+		final JComboBox<String> fontComboBox=new JComboBox<String>(fontString);
+		//对字体选择加监听
+		JButton confirmButton=new JButton("选择");
+		confirmButton.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				//修改字体
+				if (fontComboBox.getSelectedIndex()==0) {
+					InitGlobalFont(new Font("华文行楷", Font.PLAIN, 12));
+				}
+			}
+		});
+		this.setLayout(new FlowLayout());
+		this.add(image,BorderLayout.NORTH);
+		this.add(remindBox);this.add(noChange);
+		this.add(lockBox);this.add(timeBox);
+		this.add(windowButton);this.add(windowClassButton);this.add(numisButton);
+		this.add(fontLabel);this.add(fontComboBox);this.add(confirmButton);
+		JPanel mbfPanel=new JPanel();
+		mbfPanel.add(logoutButton);mbfPanel.add(exitButton2);
+		this.add(mbfPanel,BorderLayout.SOUTH);
+	}
+}

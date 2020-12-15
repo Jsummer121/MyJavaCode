@@ -1,0 +1,16 @@
+package 聊天程序设计;
+/*
+ * 发送数据的任务类
+ */
+public class SendTask implements Runnable{
+	private int sendPort;//发数据的端口号
+	//构造方法
+	public SendTask(int SendPort) {
+		this.sendPort = SendPort;
+	}
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+}

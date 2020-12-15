@@ -1,0 +1,14 @@
+//定义Circular类继承Shape，包含圆的半径r属性，定义构造方法，public void setR()方法，public doublegetR(double r)方法，
+//重载父类set方法，覆盖父类output方法，实现父类求面积的抽象方法。
+//定义类Demo，包含main方法，在main方法中定义圆的对象，调用相关方法输出圆的信息或面积。
+package 抽象类作业;
+public class Demo {
+	public static void main(String[] agrs) {
+		Circular circle=new Circular("圆形",1,2,4);
+		circle.output();
+		circle.set("圆形",2,4,7);
+		circle.output();
+		circle.setR(6);
+		circle.output();
+	}
+}

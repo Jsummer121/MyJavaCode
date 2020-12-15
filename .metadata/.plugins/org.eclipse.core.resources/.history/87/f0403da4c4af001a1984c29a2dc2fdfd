@@ -1,0 +1,11 @@
+package 软工仓库管理系统;
+
+import javax.swing.*;
+
+
+public class GongyingshangMangage extends JPanel{
+	public GongyingshangMangage() {
+		JLabel chanpinLabel = new JLabel("供应商管理界面");
+		this.add(chanpinLabel);
+	}
+}

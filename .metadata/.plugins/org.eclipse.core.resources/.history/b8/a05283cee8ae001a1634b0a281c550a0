@@ -1,0 +1,36 @@
+package SetBounds_test;
+
+import java.awt.FlowLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class test2 extends JFrame{
+	
+	JLabel label;
+	JButton bt1;
+	JPanel panel;
+	public test2() {
+		this.setSize(500, 500);
+		this.setLayout(null);
+		label = new JLabel("≤‚ ‘1");
+		bt1 = new JButton("»∑∂®");
+		this.add(label);
+		this.add(bt1);
+		
+		
+		
+		
+		
+		this.setLocationRelativeTo(null);
+		this.setVisible(true);
+	}
+
+	public static void main(String[] args) {
+		new test2();
+	}
+
+}

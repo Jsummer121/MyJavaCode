@@ -1,0 +1,26 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class text1 {
+	public static void main(String[] args) {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		// 2. 通过DriverManager获取数据库连接
+		String url = "jdbc:mysql://106.13.180.138/sys?serverTimezone=UTC&useSSL=false";
+		String user = "root";
+		String password = "summer";
+		try {
+			Connection coon = DriverManager.getConnection(url, user, password);
+			System.out.println("===========");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}

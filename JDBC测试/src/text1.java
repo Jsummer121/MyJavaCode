@@ -1,0 +1,34 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class text1 {
+
+	public static void main(String[] args) {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		// 2. 通过DriverManager获取数据库连接
+		String url = "jdbc:mysql://106.13.180.138/IWMS?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=utf8";
+		String user = "july";
+		String password = "july";
+		try {
+			Connection coon = DriverManager.getConnection(url, user, password);
+			Statement stmt = coon.createStatement();
+			String sql = "select * from mima";
+			ResultSet re = stmt.executeQuery(sql);
+			while(re.next()) {
+				String name = re.getString("user");
+				String psw = re.getString("password");
+				System.out.println(name+"+++"+psw);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+}

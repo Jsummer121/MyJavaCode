@@ -1,0 +1,10 @@
+package SetBounds_test;
+
+public class 主界面按钮 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

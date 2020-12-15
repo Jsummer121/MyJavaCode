@@ -1,0 +1,171 @@
+package 软工仓库管理系统;
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+
+public class mainWindow extends JFrame implements MouseListener{
+	JLabel chanPingManage,gongYinShangManage,chanPinView,settingView,exitLabel;
+	JPanel mainPanel,chanpingManage,gongyingshangManage,chanpingView,setTingView;
+	
+	
+	public mainWindow() {
+		this.setSize(1050, 550);							//设置窗口大小
+		this.setLocationRelativeTo(null);					//设置窗口居中
+		this.setLayout(new BorderLayout());					//设置窗口的布局方式
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		/*
+		 * 信息栏
+		 */
+		JPanel massagePanel = new JPanel();
+		massagePanel.setLayout(new BorderLayout());			//设置信息栏布局方式为箱布局
+		Color skyblue = new Color(127,153,190);				//设置背景颜色
+		massagePanel.setBackground(skyblue);
+		JLabel nameLabel = new JLabel(" IWMS智能仓库管理系统");
+		JPanel massageTextPanel = new JPanel();
+		massageTextPanel.setBackground(skyblue);
+		JLabel userNameLabel = new JLabel("您好");
+		exitLabel = new JLabel("安全退出");
+		massageTextPanel.add(userNameLabel);
+		massageTextPanel.add(exitLabel);				
+		massagePanel.add(nameLabel,BorderLayout.WEST);		
+		massagePanel.add(massageTextPanel,BorderLayout.EAST);
+		massagePanel.setVisible(true);
+		exitLabel.addMouseListener(this);
+
+		/*
+		 * 左边导航栏
+		 */
+		JPanel leftPanel = new JPanel();
+		leftPanel.setLayout(new GridLayout(4,1,200,100));
+		Color littleblue = new Color(224,237,255);
+		leftPanel.setBackground(littleblue);
+		chanPingManage = new JLabel("     产品管理     ");
+		gongYinShangManage = new JLabel("    供应商管理     ");
+		chanPinView = new JLabel("     产品视图     ");
+		settingView = new JLabel("     功能设置     ");
+		leftPanel.add(chanPingManage);
+		leftPanel.add(gongYinShangManage);
+		leftPanel.add(chanPinView);
+		leftPanel.add(settingView);
+		leftPanel.setVisible(true);
+		chanPingManage.addMouseListener(this);
+		gongYinShangManage.addMouseListener(this);
+		chanPinView.addMouseListener(this);
+		settingView.addMouseListener(this);
+		
+		/*
+		 * 主panel
+		 */
+		mainPanel = new JPanel();
+		mainPanel.setLayout(null);
+		Font font = new Font("宋体",Font.BOLD,50);
+		JLabel madeName1 = new JLabel("码上有前");
+		JLabel madeName2 = new JLabel("欢迎使用智能仓库管理系统");
+		JLabel madeName3 = new JLabel("系统环境");
+		JLabel madeName4 = new JLabel("系统环境: Windows");
+		JLabel madeName5 = new JLabel("开发工具: Ecipse");
+		JLabel madeName6 = new JLabel("Javal版本: JDK 1.8");
+		JLabel madeName7 = new JLabel("服务器: ubuntu18.04");
+		JLabel madeName8 = new JLabel("数据库: MySQL 5.7");
+		JLabel madeName9 = new JLabel("系统采用技术: Jdbc+面向接口编程");
+		JLabel madeName10 = new JLabel("开发人员: 严雅娟、李锦昌、王燕、邢彩华、危亮、张志鹏、蒋鑫鑫");
+		madeName1.setFont(font);
+		madeName1.setBounds(30, 30, 400, 100);
+		madeName2.setBounds(30, 80, 400, 100);
+		madeName3.setBounds(30, 180, 400, 100);
+		madeName4.setBounds(30, 210, 400, 100);
+		madeName5.setBounds(30, 240, 400, 100);
+		madeName6.setBounds(30, 270, 400, 100);
+		madeName7.setBounds(30, 300, 400, 100);
+		madeName8.setBounds(30, 330, 400, 100);
+		madeName9.setBounds(30, 360, 400, 100);
+		madeName10.setBounds(30, 390, 400, 100);
+		mainPanel.add(madeName1);
+		mainPanel.add(madeName2);
+		mainPanel.add(madeName3);
+		mainPanel.add(madeName4);
+		mainPanel.add(madeName5);
+		mainPanel.add(madeName6);
+		mainPanel.add(madeName7);
+		mainPanel.add(madeName8);
+		mainPanel.add(madeName9);
+		mainPanel.add(madeName10);
+		mainPanel.setVisible(true);
+		
+		/*
+		 * 底部栏
+		 */
+		JPanel buttonPanel = new JPanel();
+		buttonPanel.setBackground(Color.gray);
+		JLabel buttonLabel = new JLabel("©   码上有前");
+		buttonPanel.add(buttonLabel);
+		buttonPanel.setVisible(true);
+		this.add(massagePanel,BorderLayout.NORTH);
+		this.add(leftPanel,BorderLayout.WEST);
+		this.add(mainPanel,BorderLayout.CENTER);
+		this.add(buttonPanel,BorderLayout.SOUTH);
+		
+		//this.setResizable(false);								//设置窗口不可变
+		this.setVisible(true);									//后期删除，只有在登陆成功后变成可见
+	}
+	
+	
+	public static void main(String[] args) {
+		new mainWindow();
+	}
+	
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		mainPanel.setVisible(false);
+		chanpingManage = new ChanpingManage();		//获取JPanel视图
+		gongyingshangManage = new GongyingshangMangage();
+		chanpingView = new ChanpingView();
+		setTingView = new SettingView();
+		chanpingManage.setVisible(false);
+		gongyingshangManage.setVisible(false);
+		chanpingView.setVisible(false);
+		setTingView.setVisible(false);
+		if(e.getSource().equals(exitLabel)) {
+			System.exit(0);
+		}else if(e.getSource().equals(chanPingManage)) {				//当按下产品管理时
+			chanpingManage.setVisible(true);
+			this.add(chanpingManage,BorderLayout.CENTER);
+			this.revalidate();									//刷新重绘
+		}else if(e.getSource().equals(gongYinShangManage)) {			//当按下供应商管理时
+			gongyingshangManage.setVisible(true);
+			this.add(gongyingshangManage,BorderLayout.CENTER);
+			this.revalidate();									//刷新重绘
+		}else if(e.getSource().equals(chanPinView)) {					//当按下产品视图时
+			chanpingView.setVisible(true);
+			this.add(chanpingView,BorderLayout.CENTER);
+			this.revalidate();									//刷新重绘
+		}else{					//当按下设置时
+			setTingView.setVisible(true);
+			this.add(setTingView,BorderLayout.CENTER);
+			this.revalidate();									//刷新重绘
+		}
+	}
+
+
+	@Override
+	public void mousePressed(MouseEvent e) {}
+
+
+	@Override
+	public void mouseReleased(MouseEvent e) {}
+
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		((Component) e.getSource()).setForeground(Color.blue);	//设置鼠标从文本经过时的效果
+	}
+
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		((Component) e.getSource()).setForeground(Color.black);	//设置鼠标离开后的效果
+	}
+}

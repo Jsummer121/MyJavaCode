@@ -1,0 +1,13 @@
+INDEX VERSION 1.131
+E:\javasy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\566248171.index
+\jsp_easybuy\src
+E:\javasy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4143570570.index
+\Select_book\src
+E:\javasy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1991283859.index
+\Select_book\src
+E:\javasy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1784435323.index
+\¡Ù—‘∞Â\src
+E:\javasy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3047096808.index
+\MyFirstJSPWeb\src
+E:\javasy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\399452441.index
+\LiuYanBan\src

@@ -1,0 +1,12 @@
+package 聊天程序设计;
+/*
+ * 发送数据的任务类
+ */
+public class SendTask implements Runnable{
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+}

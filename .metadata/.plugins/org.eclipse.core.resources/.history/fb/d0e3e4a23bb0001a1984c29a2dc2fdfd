@@ -1,0 +1,10 @@
+package 软工仓库管理系统;
+
+import javax.swing.*;
+
+public class SettingView extends JPanel{
+	public SettingView() {
+		JLabel chanpinLabel = new JLabel("设置界面");
+		this.add(chanpinLabel);
+	}
+}

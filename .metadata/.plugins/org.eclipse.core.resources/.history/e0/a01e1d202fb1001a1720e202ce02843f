@@ -1,0 +1,10 @@
+package 聊天程序设计;
+
+public class CharRoom {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

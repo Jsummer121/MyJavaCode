@@ -1,0 +1,112 @@
+package MainWindow;
+
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Enumeration;
+import java.util.HashMap;
+
+import javax.swing.*;
+import javax.swing.plaf.FontUIResource;
+
+
+
+public class test1 extends JFrame implements ActionListener{
+	JTable bgTable,bg2Table,bg3Table;
+	JPanel ProductManage;
+	int combo;
+	Timer timeAction;
+	String ww;
+
+	public test1(){
+		/**
+		 * 主页面
+		 */
+		JTabbedPane xxk=new JTabbedPane();//////////////////////////////////////////////////////
+
+		/**
+		 * 产品管理页面
+		 */
+
+		//添加表格
+		ProductManage=new JPanel();
+		//设置此选项卡的布局
+		ProductManage.setLayout(new FlowLayout());
+		ProductManage.setSize(450,500);
+		ProductManage.setVisible(true);
+
+		/**
+		 * 供应商管理页面
+		 */
+		JPanel supplier=new JPanel();
+
+		/**
+		 *  产品视图
+		 * 
+		 */
+		JPanel view=new JPanel();
+		JPanel mb=new JPanel();
+		view.add(mb,BorderLayout.SOUTH);
+
+		/**
+		 * 功能设置
+		 */
+		JPanel functionPanel=new JPanel();
+		JPanel mbfPanel=new JPanel();
+		functionPanel.add(mbfPanel,BorderLayout.SOUTH);
+
+
+		/**
+		 * 主界面添加
+		 */
+		xxk.add(ProductManage,"产品管理");
+		xxk.add(supplier,"供应商管理");
+		xxk.add(view,"产品视图");
+		xxk.add(functionPanel,"功能设置");
+		this.add(xxk,BorderLayout.CENTER);
+		//设置主页面的布局
+		this.setTitle("仓库管理系统");
+		this.setVisible(true);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setSize(465, 750);
+		this.setLocation(530, 80);
+
+	}
+
+	public static void main(String args[]){
+		new test1();
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -1,0 +1,5 @@
+#Tomcat publish data
+#Sun Nov 29 08:59:07 CST 2020
+org.eclipse.jst.jee.server\:LiuYanBan=F\:\\apache-tomcat-9.0.35\\webapps\\LiuYanBan
+org.eclipse.jst.jee.server\:Select_book=F\:\\apache-tomcat-9.0.35\\webapps\\Select_book
+org.eclipse.jst.jee.server\:MyFirstJSPWeb=F\:\\apache-tomcat-9.0.35\\webapps\\MyFirstJSPWeb

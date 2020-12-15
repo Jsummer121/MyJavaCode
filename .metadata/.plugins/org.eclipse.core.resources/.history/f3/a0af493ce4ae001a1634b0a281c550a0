@@ -1,0 +1,17 @@
+package SetBounds_test;
+
+import javax.swing.JFrame;
+
+public class test1  extends JFrame{
+	
+	public void test(){
+		setBounds(0, 0, 200, 200);
+		setVisible(true);
+	}
+	
+	
+	public static void main(String[] args) {
+		new test1();
+	}
+
+}

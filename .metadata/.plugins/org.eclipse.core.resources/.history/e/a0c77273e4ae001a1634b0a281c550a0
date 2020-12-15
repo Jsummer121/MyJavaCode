@@ -1,0 +1,18 @@
+package SetBounds_test;
+
+import javax.swing.JFrame;
+
+public class test1  extends JFrame{
+	
+	public void test(){
+		this.setTitle("仓库管理系统");
+		this.setSize(500, 500);
+		this.setVisible(true);
+	}
+	
+	
+	public static void main(String[] args) {
+		new test1();
+	}
+
+}

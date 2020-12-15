@@ -1,0 +1,50 @@
+package SetBounds_test;
+
+import java.awt.FlowLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class test2 extends JFrame{
+	public test2() {
+		this.setSize(500, 500);
+		JPanel contentPane = new JPanel();
+		
+		//setContentPane(contentPane);
+		contentPane.setLayout(new FlowLayout());
+		
+		JLabel label = new JLabel("用户名111111");
+		label.setSize(100, 100);
+		JTextField text = new JTextField();
+		JButton bt1 = new JButton("按钮");
+		bt1.setSize(100, 100);
+		//label.setBounds(100, 200, 54, 15);
+		//contentPane.add(label);
+		//contentPane.add(bt1);
+		contentPane.add(label);
+		contentPane.add(text);
+		this.add(contentPane);
+		this.add(bt1);
+		this.add(label);
+		
+		
+		
+		
+		
+		this.setLocationRelativeTo(null);
+		this.setVisible(true);
+	}
+	
+	private JLabel JLabel(String string) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public static void main(String[] args) {
+		new test2();
+	}
+
+}
